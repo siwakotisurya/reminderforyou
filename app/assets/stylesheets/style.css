@@ -76,7 +76,7 @@
 	}
 	#task_list{
 		display: inline-table;
-		height: 300px;
+		height: 400px;
 		width:425px;
 		border-radius: 20px;
 		background: #339966;
@@ -107,6 +107,12 @@
 	#category_form{
 		margin-left: 20px;
 		color:yellow;
+	}
+	#sub_task{
+		margin-left: 40px;
+	}
+	#link_sub{
+		margin-left: 20px;
 	}
 
 

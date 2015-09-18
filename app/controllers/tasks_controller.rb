@@ -15,7 +15,6 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(set_db_params)
-
     if @task.save
       render "new"
     else
@@ -38,6 +37,7 @@ class TasksController < ApplicationController
 
   def viewall
     @tasks = Task.all
+    @categories = Category.all
   end
 
   private 
