@@ -31,6 +31,13 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    @task = Task.find(params[:task_id])
+    @category = @task.categories.find(params[:id])
+    if @category.destroy
+      flash[:delete] = "Category Sucessfully Deleted"
+    else
+      flash[:delete] = "OOPS Something went wrong please try again"
+    end
   end
 
   private

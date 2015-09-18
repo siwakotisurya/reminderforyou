@@ -22,22 +22,22 @@
 		<%set = "#{list.task_hour}" + "#{list.task_minute}" + "#{list.task_time}"%>
 		<%=set%>
 	<br><br>
-		<%=link_to("Edit/Update Task")%>
+		<%=link_to("Edit/Update Task",edit_task_path(list.id))%>
 
 		<%=link_to("Delete Task",task_path(list.id),method: :delete)%>
 	<br>
-		<%@categories.each do |check| %>
-		<br><br>		
+	<br><br>		
 		<h4>Sub Task</h4>
+		<%@categories.each do |check| %>
 		<div id ="sub_task">
-		<%if check.task_id==list.id %>
-		<p>|---><%=check.sub_task_name%></p>
-		<p>|---><%=check.sub_task_desc%></p>
+		<%if check.task_id == list.id %>
+		<p>|-Task Name-><%=check.sub_task_name%></p>
+		<p>|-Task Description-><%=check.sub_task_desc%></p>
 	<br>
 	</div>
 	<div id ="link_sub">
 		<%=link_to("Edit/Update Task")%>
-		<%=link_to("Delete Task",tasks_path)%>
+		<%=link_to("Delete Task", task_category_path(list.id,check.id), method: :delete)%>
 		<br><br>
 	</div>
 <%end%>

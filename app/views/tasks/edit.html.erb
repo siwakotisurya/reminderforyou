@@ -1,2 +1,50 @@
-<h1>Reminders#edit</h1>
-<p>Find me in app/views/reminders/edit.html.erb</p>
+<% @page_title = "Reminder.com|New"%>
+<section id="content_create">
+	<% if flash[:sucess]%>
+		<%=flash[:sucess]%>
+	<%end%>
+	<h3>Create New Reminder</h3>
+	<%= form_for @task do |f| %>
+	<br>
+		<% if @task.errors.any? %>
+			<h4>Sorry There are Some Errors</h4>
+			<%@task.errors.full_messages.each do |errors| %>
+			<ul>
+				<li>
+					<%= errors%>
+				</li>
+			</ul>
+		<%end%>
+		<br><br>
+	<%end%>
+	<%=f.label("Enter Task Name")%>
+	<br><br>
+	<%=f.text_area :task_name, :cols =>40, :placeholder=>"Enter Task Name Eg: Motorbike Servicing"%>
+	<br><br>
+	<%=f.label("Task Description")%>
+	<br><br>
+	<%=f.text_area :task_description, :cols =>40, :rows=>5, :placeholder=>"Enter Task description Eg: Need to move showroom"%>
+	<br>
+	<div class="start_end">
+		<%=f.label("Set Date")%>
+		<br><br>
+		<input type="text" class="datepicker" name="task[task_date]">
+		<br><br><br><br><br>
+		<%=f.label("Set Time")%>
+		<br><br>
+ 		<%= f.select :task_hour, [['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10'],['11','11'],['12','12']]%>
+		<%= f.select :task_minute, [['0:00','0:00'],['5','5'],['10','10'],['20','20'],['30','30'],['40','40'],['50','50']]%>
+		<%= f.select :task_time, [['am','am'],['pm','pm']]%>
+
+	</div>
+	<br><br>
+		<%=f.submit(" Create a Task  ")%>
+	<%end%>
+	</section>
+<script type="text/javascript">
+$( document ).ready(function() {
+$(function() {
+  $(".datepicker").datepicker();
+});   
+});
+</script>

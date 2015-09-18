@@ -16,17 +16,25 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(set_db_params)
     if @task.save
+      flash[:sucess] = "Reminder Sucessfuly Created <br><br>".html_safe
       render "new"
     else
+      flash[:sucess] = "Please try again".html_safe
       render "new"
     end
 
   end
 
   def edit
+    @task = Task.find(params[:id])
   end
 
   def update
+    @task = Task.find(params[:id])
+    if @task.update(set_db_params) 
+      flash[:delete] = "Task Sucessfuly Updated" 
+      render "viewall"
+    end
   end
 
   def delete
@@ -36,7 +44,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.destroy
       flash[:delete] = "Task Deleted"
-      render "viewall"
+      redirect_to :controller=>"tasks" ,:action=>"viewall"
     end
   end
 

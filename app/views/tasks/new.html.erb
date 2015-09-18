@@ -1,5 +1,8 @@
 <% @page_title = "Reminder.com|New"%>
 <section id="content_create">
+	<% if flash[:sucess]%>
+		<%=flash[:sucess]%>
+	<%end%>
 	<h3>Create New Reminder</h3>
 	<%= form_for @task do |f| %>
 	<br>
