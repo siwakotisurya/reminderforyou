@@ -1,0 +1,28 @@
+<%@tasks.each do |list|%>
+<div id ="task_list">
+<div id="aside">
+<br>
+<%=link_to("Create a Sub Task")%>
+<br>
+<p>Task Name</p>
+<hr>
+<%=list.task_name%>
+<p>Task Description</p>
+<hr>
+<%=list.task_description%>
+<p>Task Date</p>
+<hr>
+<%=list.task_date%>
+<p>Task Time</p>
+<hr>
+<%set = "#{list.task_hour}" + "#{list.task_minute}" + "#{list.task_time}"%>
+<%=set%>
+<br><br>
+
+<%=link_to("Edit/Update Task")%>
+
+<%=link_to("Delete Task",tasks_path)%>
+
+</div>
+</div>
+<%end%>

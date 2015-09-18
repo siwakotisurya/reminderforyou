@@ -1,0 +1,109 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+@media only screen and (min-width: 950px){
+	#container
+	{
+		width: 930px;
+		height: 800px;
+		background-color: #609C4D;
+		border-style:solid;
+		border: 1px;
+		border-color: black;
+		margin: 0px auto; 
+	}
+
+	#header_top
+	{
+		height: 200px;
+		width: 100%;
+		background-color: #609C4D;
+	}
+	#logo
+	{
+		height: 100px;
+		width: 100px;
+		background-image: url("reminder.gif");
+		background-repeat: no-repeat;
+		padding: 0px;
+		margin-left: 10px;
+		opacity: .70;
+	}
+	#logo:hover
+	{
+		opacity: .99;
+	}
+	#header_top h1{
+		text-align: center;
+		margin-top: -40px;
+		font-size: 25px;
+
+	}
+	#navbar ul
+	{
+		margin-top: 60px;
+	}
+	#navbar ul li
+	{
+		display: inline;
+		margin-left: 15px;
+	}
+	#navbar a
+	{
+		color: white;
+		opacity: .80;
+		text-decoration: none;
+	}
+	#navbar a:hover{
+		opacity: .99;
+	}
+	#middle_section{
+
+	}
+	#content_create{
+		margin-left: 15px;
+		color: yellow;
+		margin-top: 20px;
+
+	}
+	.start_end{
+		height: 100px;
+		width: 200px;
+		float:right;
+		margin-top: -240px;
+		margin-right: 400px;
+	}
+	#task_list{
+		display: inline-table;
+		height: 300px;
+		width:425px;
+		border-radius: 20px;
+		background: #339966;
+		margin-left: 20px;
+		border-style: solid;
+		margin-top: 30px;
+	}
+	#aside{
+		margin-left: 20px;
+	}
+	#task_list p{
+		margin-top: 10px;
+		font-weight: bold;
+		font-size: 16px;
+		color: #FFFF99;
+		font-family: monospace;
+	}
+	#task_list a{
+		color: yellow;
+		opacity: .70;
+	}
+	#task_list a:hover{
+		opacity: .99;
+	}
+	hr{
+		color: black;
+	}
+
+
+}
