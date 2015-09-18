@@ -1,5 +1,17 @@
+<div id="category_form">
 <%=form_for :category, url:{:controller=>"categories", :action=>"create"} do |f| %>
-	<%=f.text_field :sub_task_name%>
-	<%=f.text_field :sub_task_description%>
+<%if flash[:message]!= nil %>
+	<%=flash[:message]%><br><br>
+<%end%>
+<%=f.label("Enter Sub Task Name")%>
+<br><br>
+<%=f.text_area :sub_task_name, :cols =>40, :placeholder=>"Enter Sub Task Name Eg: Need to Buy Helmet"%>
+<br>
+<br>
+<%=f.label("Task Description")%>
+<br><br>
+<%=f.text_area :sub_task_desc, :cols =>40, :rows=>5, :placeholder=>"Enter Task description Eg: Urgent"%>
+<br><br>
 	<%=f.submit("Create Sub Task")%>
 <%end%>
+</div>

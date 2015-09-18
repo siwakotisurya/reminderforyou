@@ -104,6 +104,10 @@
 	hr{
 		color: black;
 	}
+	#category_form{
+		margin-left: 20px;
+		color:yellow;
+	}
 
 
 }
