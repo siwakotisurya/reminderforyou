@@ -1,41 +1,44 @@
-<%@tasks.each do |list|%>
-<div id ="task_list">
-<div id="aside">
-<br>
-<%=link_to("Create a Sub Task", new_task_category_path(list.id))%>
-<br>
-<p>Task Name</p>
-<hr>
-<%=list.task_name%>
-<p>Task Description</p>
-<hr>
-<%=list.task_description%>
-<p>Task Date</p>
-<hr>
-<%=list.task_date%>
-<p>Task Time</p>
-<hr>
-<%set = "#{list.task_hour}" + "#{list.task_minute}" + "#{list.task_time}"%>
-<%=set%>
-<br><br>
-<%=link_to("Edit/Update Task")%>
-
-<%=link_to("Delete Task",tasks_path)%>
-<br>
-
-<%@categories.each do |check| %>
-<br><br>		
-	<h4>Sub Task</h4>
-	<div id ="sub_task">
-<%if check.task_id==list.id %>
-		<p>|---><%=check.sub_task_name%></p>
-<p>|---><%=check.sub_task_desc%></p>
-<br>
-</div>
-<div id ="link_sub">
-<%=link_to("Edit/Update Task")%>
-<%=link_to("Delete Task",tasks_path)%>
+<%if flash[:delete]%>
+	<div id="errors">
+	<h2><%=flash[:delete]%></h2>
+	</div>
+<%end%>
+<% if @tasks!=nil %>
+	<%@tasks.each do |list|%>
+	<div id ="task_list">
+		<%=link_to("Create a Sub Task", new_task_category_path(list.id))%>
+	<br>
+		<p>Task Name</p>
+		<hr>
+		<%=list.task_name%>
+		<p>Task Description</p>
+		<hr>
+		<%=list.task_description%>
+		<p>Task Date</p>
+	<hr>
+	<%=list.task_date%>	
+	<p>Task Time</p>
+	<hr>
+		<%set = "#{list.task_hour}" + "#{list.task_minute}" + "#{list.task_time}"%>
+		<%=set%>
 	<br><br>
+		<%=link_to("Edit/Update Task")%>
+
+		<%=link_to("Delete Task",task_path(list.id),method: :delete)%>
+	<br>
+		<%@categories.each do |check| %>
+		<br><br>		
+		<h4>Sub Task</h4>
+		<div id ="sub_task">
+		<%if check.task_id==list.id %>
+		<p>|---><%=check.sub_task_name%></p>
+		<p>|---><%=check.sub_task_desc%></p>
+	<br>
+	</div>
+	<div id ="link_sub">
+		<%=link_to("Edit/Update Task")%>
+		<%=link_to("Delete Task",tasks_path)%>
+		<br><br>
 	</div>
 <%end%>
 
@@ -43,4 +46,5 @@
 
 </div>
 </div>
+<%end%>
 <%end%>

@@ -33,6 +33,11 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @task = Task.find(params[:id])
+    if @task.destroy
+      flash[:delete] = "Task Deleted"
+      render "viewall"
+    end
   end
 
   def viewall
@@ -42,8 +47,8 @@ class TasksController < ApplicationController
 
   private 
     def set_db_params
-      params.require(:task).permit(:task_name, :task_description, :task_date,
-                                  :task_categories, :task_time, :task_hour,
+      params.require(:task).permit(:task_name, :task_description, 
+                                   :task_date, :task_time, :task_hour,
                                   :task_minute)
     end
 
