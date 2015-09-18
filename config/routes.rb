@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
   resources :tasks do
+  resources :categories 
     collection do
       get "viewall"
     end
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

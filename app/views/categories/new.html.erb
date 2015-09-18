@@ -1,2 +1,5 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<%=form_for :category, url:{:controller=>"categories", :action=>"create"} do |f| %>
+	<%=f.text_field :sub_task_name%>
+	<%=f.text_field :sub_task_description%>
+	<%=f.submit("Create Sub Task")%>
+<%end%>
